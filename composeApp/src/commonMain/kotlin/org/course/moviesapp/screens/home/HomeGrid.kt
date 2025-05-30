@@ -19,11 +19,10 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 
 @Composable
-fun HomeGrid(items:List<Item>, onActionClick:(Action, Int) -> Unit){
+fun HomeGrid(items:List<Item>, onActionClick:(Action, Int) -> Unit, modifier:Modifier = Modifier){
     LazyVerticalGrid(
         columns = GridCells.Adaptive(180.dp),
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = WindowInsets.statusBars.asPaddingValues()
+        modifier = modifier.fillMaxSize()
     ){
         itemsIndexed(items, key = { _, item -> item.id }){ index, item ->
             Column (

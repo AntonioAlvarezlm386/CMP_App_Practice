@@ -18,9 +18,9 @@ import coil3.compose.AsyncImage
 
 
 @Composable
-fun HomeList(items:List<Item>, onActionClick:(Action, Int) -> Unit){
+fun HomeList(items:List<Item>, onActionClick:(Action, Int) -> Unit, modifier: Modifier = Modifier){
     LazyColumn (
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth(),
         //Para evitar que el contenido se corte en el appbar, y pase por debajo
         contentPadding = WindowInsets.statusBars.asPaddingValues()

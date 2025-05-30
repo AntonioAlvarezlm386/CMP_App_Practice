@@ -1,0 +1,16 @@
+<resources>
+    <string name="more_options">Mas opciones</string>
+    <string name="clone">Clonar</string>
+    <string name="delete">Eliminar</string>
+    <string name="emailLogin">Correo Electronico</string>
+    <string name="passwordLogin">Contraseña</string>
+    <string name="btnLogin">Iniciar sesion</string>
+    <string name="successLogin">Sesion iniciada</string>
+    <string name="invalidPassword">Contraseña invalida</string>
+    <string name="invalidEmail">Correo invalido</string>
+    <string name="app_name">Maestro Detalle App</string>
+    <string name="grid_view">Boton de Grid view</string>
+    <string name="list_view">Boton de List view</string>
+    <string name="item_cloned">%s clonado</string>
+    <string name="item_deleted">%s eliminado</string>
+</resources>

@@ -32,11 +32,11 @@ import moviesapp.composeapp.generated.resources.successLogin
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun Login(viewModel: LoginViewModel = viewModel()){
+fun Login(viewModel: LoginViewModel = viewModel{ LoginViewModel() }){
     val state = viewModel.state
     val message = when{
         state.loggedIn -> stringResource(Res.string.successLogin)
-        state.error != null -> state.error
+        state.error != null -> stringResource(state.error)
         else -> null
     }
 
@@ -77,8 +77,8 @@ fun Login(viewModel: LoginViewModel = viewModel()){
         ){
             Text("Login")
         }
-        if (message != null){
-            Text(message)
+        if(message != null){
+            Text(text = message)
         }
     }
 }

@@ -5,6 +5,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import moviesapp.composeapp.generated.resources.Res
+import moviesapp.composeapp.generated.resources.invalidEmail
+import moviesapp.composeapp.generated.resources.invalidPassword
 import org.jetbrains.compose.resources.StringResource
 
 class LoginViewModel:ViewModel() {
@@ -19,8 +22,8 @@ class LoginViewModel:ViewModel() {
 
     fun login(email:String, password:String){
         state = when{
-            !email.contains("@") -> UiState(error = "Invalid email")
-            password.length < 5 -> UiState(error = "Invalid password")
+            !email.contains("@") -> UiState(error = Res.string.invalidEmail)
+            password.length < 5 -> UiState(error = Res.string.invalidPassword)
             else -> UiState(loggedIn = true)
         }
     }
