@@ -1,5 +1,6 @@
 package org.course.moviesapp.screens.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,7 +19,12 @@ import coil3.compose.AsyncImage
 
 
 @Composable
-fun HomeList(items:List<Item>, onActionClick:(Action, Int) -> Unit, modifier: Modifier = Modifier){
+fun HomeList(
+    items:List<Item>,
+    onItemClick: (Item) -> Unit,
+    onActionClick:(Action, Int) -> Unit,
+    modifier: Modifier = Modifier
+){
     LazyColumn (
         modifier = modifier
             .fillMaxWidth(),
@@ -65,6 +71,7 @@ fun HomeList(items:List<Item>, onActionClick:(Action, Int) -> Unit, modifier: Mo
                     MoreActionsIconButton(){onActionClick(it, index)}
                 },
                 modifier = Modifier.animateItem()
+                    .clickable{ onItemClick(image) }
             )
         }
     }

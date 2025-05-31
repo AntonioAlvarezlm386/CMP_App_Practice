@@ -11,7 +11,6 @@
     <string name="app_name">Detail App</string>
     <string name="grid_view">GridView Button</string>
     <string name="list_view">ListView Boutton</string>
-    <string name="item_cloned">%s cloned</string>
-    <string name="item_deleted">%s deleted</string>
-
+    <string name="item_cloned">%1$s cloned</string>
+    <string name="item_deleted">%1$s deleted</string>
 </resources>

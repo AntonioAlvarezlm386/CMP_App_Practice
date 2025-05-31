@@ -1,5 +1,4 @@
 package org.course.moviesapp.screens.login
-
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,7 +13,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -27,17 +26,30 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.serialization.Serializable
 import moviesapp.composeapp.generated.resources.Res
 import moviesapp.composeapp.generated.resources.successLogin
 import org.jetbrains.compose.resources.stringResource
 
+
+@Serializable
+object Login
+
+
 @Composable
-fun Login(viewModel: LoginViewModel = viewModel{ LoginViewModel() }){
+fun Login(
+    onLoggedIn: () -> Unit,
+    viewModel: LoginViewModel = viewModel{ LoginViewModel() }
+){
     val state = viewModel.state
     val message = when{
         state.loggedIn -> stringResource(Res.string.successLogin)
         state.error != null -> stringResource(state.error)
         else -> null
+    }
+
+    LaunchedEffect(viewModel.state.loggedIn){
+        if(viewModel.state.loggedIn) onLoggedIn()
     }
 
     var user : String by remember{ mutableStateOf("") }

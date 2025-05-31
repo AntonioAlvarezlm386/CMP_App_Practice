@@ -41,6 +41,10 @@ class HomeviewModel : ViewModel() {
 
         }
     }
+
+    fun clearNotification() {
+        state = state.copy(notification = null)
+    }
 }
 
 
